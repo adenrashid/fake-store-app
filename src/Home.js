@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { getDefaultNormalizer } from '@testing-library/react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Home.css';
 
 function ShowProducts() {
@@ -12,21 +13,10 @@ function ShowProducts() {
 
   function SortByCategory(e) {
     fetch(`https://fakestoreapi.com/products/category/${e.target.id}`)
-        .then(res=>res.json())
-        .then((result) => {
-          setItems(result);
-        }
-      )
-  }
-
-  function FindProductById(id) {
-    useEffect(() => {
-      fetch(`https://fakestoreapi.com/products/${id}`)
       .then(res=>res.json())
       .then((result) => {
-        setItemsInCart(oldArray => [...oldArray,result])
+        setItems(result);
       })
-    }, [])
   }
 
   useEffect(() => {
@@ -81,19 +71,17 @@ function ShowProducts() {
     return (
       <div>
         <h1>Welcome to the Fake Store</h1>
-        <p>Logged in as: name: {user.name.firstname} {user.name.lastname} username: {user.username} email: {user.email} address: {user.address.number} {user.address.street} {user.address.city} password: {user.password}</p>
+        <p>Logged in as: 
+          name: {user.name.firstname} {user.name.lastname} 
+          username: {user.username} 
+          email: {user.email} 
+          address: {user.address.number} {user.address.street} {user.address.city} 
+          password: {user.password}
+        </p>
         <p>Current Cart: {cart.products.map(product => (
           <div>
-            {FindProductById(product.productId)}
-            {console.log(itemsInCart)}
-            {/* {FindProductById(product.productId)}
-            {itemsInCart.map(item => (
-              <div>
-                <p>Item Title: {item.title}</p>
-                <img src={item.image} alt=""/>
-              </div>
-            ))}
-                <p>Quantity: {product.quantity}</p> */}
+            <p>{product.productId}</p>
+            <p>Quantity: {product.quantity}</p>
           </div>
         ))}</p>
         {categories.map(category => (
