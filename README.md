@@ -1,7 +1,6 @@
 - What principles did you apply?
     - KISS
-    - DRY 
-    - React Hooks
+    - DRY
 - An explanation of decisions taken and their motivation?
     - I decided to use React Hooks rather than Components as I felt working with functions to be cleaner
 - Motivation for tool selection?
@@ -11,8 +10,9 @@
     - Implemented a FindProductById() function that woukd take the product ID as the parameter (from the data of what is in the user's cart) and used that to pull the item picture and title to display this on the webpage 
     - Implementing updates to the user profile 
     - Rather than keeping everything in Home.js, creating seperate files to make the code cleaner 
-    - Fixing the aesthetics and UI of the site 
+    - Fixing the aesthetics and UI of the site, implementing more design
+    - Implementing responsiveness for mobile phones vs webpages 
     - Implementing routing to make the site look cleaner 
     - Deployment to Heroku 
-    - Made a search bar to find products
+    - Making a search bar to find products
     - Sorting by price feature when viewing products 
